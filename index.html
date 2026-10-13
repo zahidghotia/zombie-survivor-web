@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#0c0f12">
 <title>Zombie Survivor</title>
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <script type="module" crossorigin src="./assets/index-runxauKO.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CqVXXeAa.css">
+  <script type="module" crossorigin src="./assets/index-Dzzi2StZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CsSzxXTq.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -58,6 +58,12 @@
       <div class="bossbar" id="bossbar" hidden><span id="boss-name">BONE KNIGHT</span><div class="bar boss"><i id="boss-hp"></i></div></div>
     </div>
     <div class="hud-center" id="hud-banner" hidden></div>
+    <div class="rail" id="rail">
+      <button type="button" class="railbtn" data-boost="gun"><span class="badge b-red"><svg class="ico"><use href="#i-gun"/></svg></span><b>GUN +1</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
+      <button type="button" class="railbtn" data-boost="armor"><span class="badge b-blue"><svg class="ico"><use href="#i-shield"/></svg></span><b>ARMOR</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
+      <button type="button" class="railbtn" data-boost="magnet"><span class="badge b-purple"><svg class="ico"><use href="#i-magnet"/></svg></span><b>MAGNET</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
+      <button type="button" class="railbtn" data-boost="heal"><span class="badge b-green"><svg class="ico"><use href="#i-heart"/></svg></span><b>HEAL</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
+    </div>
   </div>
   <div id="joystick" hidden><div id="joy-base"><div id="joy-knob"></div></div></div>
 
@@ -131,9 +137,24 @@
       <button type="button" class="ghost" id="btn-haptics">Vibration: On</button>
       <button type="button" class="primary small" id="btn-removeads"><svg class="ico"><use href="#i-noads"/></svg><span id="removeads-text">REMOVE ADS</span></button>
       <button type="button" class="link" id="btn-restore">Restore purchases</button>
-      <div class="linkrow"><button type="button" class="link" data-page="about">About</button><button type="button" class="link" data-page="privacy">Privacy</button><button type="button" class="link" data-page="terms">Terms</button></div>
+      <div class="linkrow"><button type="button" class="link" id="btn-howto">How to play</button><button type="button" class="link" data-page="about">About</button><button type="button" class="link" data-page="privacy">Privacy</button><button type="button" class="link" data-page="terms">Terms</button></div>
       <p class="hint" id="version-text">v1.0</p>
       <button type="button" class="primary" data-back>DONE</button>
+    </div>
+  </div>
+
+  <!-- how to play -->
+  <div id="tutorial" class="modal" hidden>
+    <div class="panel">
+      <h2>HOW TO PLAY</h2>
+      <div class="tut">
+        <div class="tut-step"><span class="badge b-blue"><svg class="ico"><use href="#i-boots"/></svg></span><div><b>Move</b><small>Touch anywhere and drag. On PC use W A S D or the arrow keys.</small></div></div>
+        <div class="tut-step"><span class="badge b-red"><svg class="ico"><use href="#i-gun"/></svg></span><div><b>Your gun fires by itself</b><small>It aims at the nearest enemy on screen. Just keep moving.</small></div></div>
+        <div class="tut-step"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><div><b>Collect the glowing gems</b><small>Enemies drop blue gems. Walk near them to collect XP and level up.</small></div></div>
+        <div class="tut-step"><span class="badge b-gold"><svg class="ico"><use href="#i-bolt"/></svg></span><div><b>Pick an upgrade</b><small>Every level up pauses the fight and offers three upgrades. Tap one.</small></div></div>
+        <div class="tut-step"><span class="badge b-green"><svg class="ico"><use href="#i-heart"/></svg></span><div><b>Survive the timer</b><small>Last until the clock hits zero to clear the mission. Bosses show up later.</small></div></div>
+      </div>
+      <button type="button" class="primary" id="btn-tut-ok">GOT IT</button>
     </div>
   </div>
 
@@ -161,6 +182,7 @@
     <div class="panel">
       <div class="eyebrow" id="over-eyebrow">You died</div>
       <h2 id="over-title">DEFEATED</h2>
+      <div class="heroshot" id="over-hero"><img id="over-hero-img" alt=""><span class="heroshot-tag" id="over-hero-tag">ROGUE</span></div>
       <div class="starsrow" id="over-stars"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></div>
       <div class="stats">
         <div><small>Time</small><b id="over-time">00:00</b></div>
