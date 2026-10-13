@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#0c0f12">
 <title>Zombie Survivor</title>
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <script type="module" crossorigin src="./assets/index-Dzzi2StZ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CsSzxXTq.css">
+  <script type="module" crossorigin src="./assets/index-B6CQM2oT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C1OVndWD.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -58,6 +58,8 @@
       <div class="bossbar" id="bossbar" hidden><span id="boss-name">BONE KNIGHT</span><div class="bar boss"><i id="boss-hp"></i></div></div>
     </div>
     <div class="hud-center" id="hud-banner" hidden></div>
+    <div class="combo" id="combo" hidden><b id="combo-n">0</b><small>KILL STREAK</small></div>
+    <button type="button" class="dashbtn" id="btn-dash"><span class="badge b-blue"><svg class="ico"><use href="#i-boots"/></svg></span><em id="dash-cd">DASH</em></button>
     <div class="rail" id="rail">
       <button type="button" class="railbtn" data-boost="gun"><span class="badge b-red"><svg class="ico"><use href="#i-gun"/></svg></span><b>GUN +1</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
       <button type="button" class="railbtn" data-boost="armor"><span class="badge b-blue"><svg class="ico"><use href="#i-shield"/></svg></span><b>ARMOR</b><em><svg class="ico"><use href="#i-play"/></svg>AD</em></button>
@@ -85,20 +87,24 @@
         <span class="hc-badge stars"><svg class="ico"><use href="#i-star"/></svg><b id="hc-stars">0</b></span>
       </div>
       <button type="button" class="nextcard" id="btn-next">
-        <small>NEXT MISSION</small><b id="next-title">Graveyard 1</b><span id="next-goal">Survive 2:30</span>
+        <small data-i18n="nextMission">NEXT MISSION</small><b id="next-title">Graveyard 1</b><span id="next-goal">Survive 2:30</span>
         <em class="boosted" id="next-boosted" hidden>BOOSTED</em>
       </button>
-      <button type="button" class="primary" id="btn-play"><svg class="ico"><use href="#i-play"/></svg><span id="btn-play-text">PLAY</span></button>
+      <button type="button" class="primary" id="btn-play"><svg class="ico"><use href="#i-play"/></svg><span id="btn-play-text" data-i18n="play">PLAY</span></button>
       <div class="navrow">
-        <button type="button" class="nav" id="btn-levels"><span class="badge b-blue"><svg class="ico"><use href="#i-map"/></svg></span>Missions</button>
-        <button type="button" class="nav" id="btn-upgrades"><span class="badge b-red"><svg class="ico"><use href="#i-sword"/></svg></span>Upgrades</button>
-        <button type="button" class="nav" id="btn-heroes"><span class="badge b-purple"><svg class="ico"><use href="#i-helmet"/></svg></span>Heroes</button>
-        <button type="button" class="nav" id="btn-awards"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span>Awards<em class="dot" id="awards-dot" hidden></em></button>
+        <button type="button" class="nav" id="btn-levels"><span class="badge b-blue"><svg class="ico"><use href="#i-map"/></svg></span><span data-i18n="missions">Missions</span></button>
+        <button type="button" class="nav" id="btn-upgrades"><span class="badge b-red"><svg class="ico"><use href="#i-sword"/></svg></span><span data-i18n="upgrades">Upgrades</span></button>
+        <button type="button" class="nav" id="btn-heroes"><span class="badge b-purple"><svg class="ico"><use href="#i-helmet"/></svg></span><span data-i18n="heroes">Heroes</span></button>
+        <button type="button" class="nav" id="btn-awards"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span><span data-i18n="awards">Awards</span><em class="dot" id="awards-dot" hidden></em></button>
       </div>
-      <button type="button" class="dailybar" id="btn-daily"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><span class="tx"><b>Daily rewards</b><small id="daily-sub">Claim today's login bonus</small></span><em class="dot" id="daily-dot"></em></button>
-      <div class="adrow">
-        <button type="button" class="ghost chest" id="btn-chest"><span class="badge b-green"><svg class="ico"><use href="#i-chest"/></svg></span><span id="btn-chest-text">Daily chest</span><svg class="ico"><use href="#i-play"/></svg></button>
-        <button type="button" class="ghost chest" id="btn-boost"><span class="badge b-green"><svg class="ico"><use href="#i-bolt"/></svg></span><span id="btn-boost-text">Boost run</span><svg class="ico"><use href="#i-play"/></svg></button>
+      <button type="button" class="dailybar" id="btn-daily"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><span class="tx"><b data-i18n="dailyRewards">Daily rewards</b><small id="daily-sub">Claim today's login bonus</small></span><em class="dot" id="daily-dot"></em></button>
+      <div class="tiles">
+        <button type="button" class="tile" id="btn-weekly"><span class="badge b-red"><svg class="ico"><use href="#i-boss"/></svg></span><b id="weekly-name" data-i18n="weekly">Weekly</b><small id="weekly-sub">Shotgun Only · Village</small></button>
+        <button type="button" class="tile" id="btn-season"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span><b data-i18n="season">Season Pass</b><small id="season-sub">Tier 0/30</small></button>
+        <button type="button" class="tile ad" id="btn-chest"><span class="badge b-green"><svg class="ico"><use href="#i-chest"/></svg></span><b id="btn-chest-text" data-i18n="dailyChest">Daily chest</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
+        <button type="button" class="tile ad" id="btn-boost"><span class="badge b-green"><svg class="ico"><use href="#i-bolt"/></svg></span><b id="btn-boost-text" data-i18n="boostRun">Boost run</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
+        <button type="button" class="tile ad" id="btn-x2"><span class="badge b-green"><svg class="ico"><use href="#i-coin"/></svg></span><b id="btn-x2-text" data-i18n="x2">2x coins</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
+        <button type="button" class="tile" id="btn-freecoins2"><span class="badge b-gold"><svg class="ico"><use href="#i-coin"/></svg></span><b>Free coins</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
       </div>
       <p class="hint" id="menu-hint">Move with the joystick. Your weapon fires on its own.</p>
     </div>
@@ -130,38 +136,67 @@
   <!-- settings -->
   <div id="settings" class="modal" hidden>
     <div class="panel">
-      <h2>SETTINGS</h2>
+      <h2 data-i18n="settings">SETTINGS</h2>
       <button type="button" class="ghost" id="btn-sound">Sound: On</button>
       <button type="button" class="ghost" id="btn-music">Music: On</button>
       <button type="button" class="ghost" id="btn-quality">Quality: High</button>
       <button type="button" class="ghost" id="btn-haptics">Vibration: On</button>
+      <button type="button" class="ghost" id="btn-lang">Language: English</button>
       <button type="button" class="primary small" id="btn-removeads"><svg class="ico"><use href="#i-noads"/></svg><span id="removeads-text">REMOVE ADS</span></button>
       <button type="button" class="link" id="btn-restore">Restore purchases</button>
-      <div class="linkrow"><button type="button" class="link" id="btn-howto">How to play</button><button type="button" class="link" data-page="about">About</button><button type="button" class="link" data-page="privacy">Privacy</button><button type="button" class="link" data-page="terms">Terms</button></div>
+      <div class="linkrow"><button type="button" class="link" id="btn-howto" data-i18n="howto">How to play</button><button type="button" class="link" data-page="about" data-i18n="about">About</button><button type="button" class="link" data-page="privacy" data-i18n="privacy">Privacy</button><button type="button" class="link" data-page="terms" data-i18n="terms">Terms</button></div>
       <p class="hint" id="version-text">v1.0</p>
-      <button type="button" class="primary" data-back>DONE</button>
+      <button type="button" class="primary" data-back data-i18n="done">DONE</button>
     </div>
+  </div>
+
+  <div id="chest" class="modal" hidden>
+    <div class="panel">
+      <div class="eyebrow" id="chest-eyebrow">Boss chest</div>
+      <h2 data-i18n="chest">CHEST</h2>
+      <div class="chestcards" id="chest-cards"></div>
+      <button type="button" class="primary" id="btn-chest-ok" data-i18n="collect">COLLECT</button>
+    </div>
+  </div>
+
+  <div id="offline" class="modal" hidden>
+    <div class="panel">
+      <div class="eyebrow" data-i18n="whileAway">While you were away</div>
+      <h2 data-i18n="offline">OFFLINE EARNINGS</h2>
+      <div class="heroshot"><img id="offline-hero" alt=""></div>
+      <p class="hint" id="offline-text">Your hero kept the graveyard clear for 3 hours.</p>
+      <div class="stats one"><div><small data-i18n="coinsEarned">Coins earned</small><b id="offline-coins">+0</b></div></div>
+      <button type="button" class="primary ad" id="btn-offline-2x"><svg class="ico"><use href="#i-play"/></svg>CLAIM 2X</button>
+      <button type="button" class="ghost" id="btn-offline-claim" data-i18n="claim">CLAIM</button>
+    </div>
+  </div>
+
+  <div id="season" class="modal screen" hidden>
+    <div class="topbar"><button type="button" class="icon-btn" data-back aria-label="Back"><svg class="ico"><use href="#i-back"/></svg></button><span class="title">SEASON PASS</span><span class="coins"><svg class="ico"><use href="#i-coin"/></svg><span id="season-coins">0</span></span></div>
+    <div class="stagehead"><b id="season-name">Season</b><span id="season-xp">Tier 0 · 0/100 XP</span></div>
+    <button type="button" class="primary small" id="btn-season-premium"><svg class="ico"><use href="#i-trophy"/></svg><span id="season-premium-text">UNLOCK PREMIUM</span></button>
+    <div class="list" id="season-list"></div>
   </div>
 
   <!-- how to play -->
   <div id="tutorial" class="modal" hidden>
     <div class="panel">
-      <h2>HOW TO PLAY</h2>
+      <h2 data-i18n="howToPlay">HOW TO PLAY</h2>
       <div class="tut">
-        <div class="tut-step"><span class="badge b-blue"><svg class="ico"><use href="#i-boots"/></svg></span><div><b>Move</b><small>Touch anywhere and drag. On PC use W A S D or the arrow keys.</small></div></div>
-        <div class="tut-step"><span class="badge b-red"><svg class="ico"><use href="#i-gun"/></svg></span><div><b>Your gun fires by itself</b><small>It aims at the nearest enemy on screen. Just keep moving.</small></div></div>
-        <div class="tut-step"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><div><b>Collect the glowing gems</b><small>Enemies drop blue gems. Walk near them to collect XP and level up.</small></div></div>
-        <div class="tut-step"><span class="badge b-gold"><svg class="ico"><use href="#i-bolt"/></svg></span><div><b>Pick an upgrade</b><small>Every level up pauses the fight and offers three upgrades. Tap one.</small></div></div>
-        <div class="tut-step"><span class="badge b-green"><svg class="ico"><use href="#i-heart"/></svg></span><div><b>Survive the timer</b><small>Last until the clock hits zero to clear the mission. Bosses show up later.</small></div></div>
+        <div class="tut-step"><span class="badge b-blue"><svg class="ico"><use href="#i-boots"/></svg></span><div><b data-i18n="tutMove">Move</b><small data-i18n="tutMoveD">Touch anywhere and drag. On PC use W A S D or the arrow keys.</small></div></div>
+        <div class="tut-step"><span class="badge b-red"><svg class="ico"><use href="#i-gun"/></svg></span><div><b data-i18n="tutGun">Your gun fires by itself</b><small data-i18n="tutGunD">It aims at the nearest enemy on screen. Just keep moving.</small></div></div>
+        <div class="tut-step"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><div><b data-i18n="tutGems">Collect the glowing gems</b><small data-i18n="tutGemsD">Enemies drop blue gems. Walk near them to collect XP and level up.</small></div></div>
+        <div class="tut-step"><span class="badge b-gold"><svg class="ico"><use href="#i-bolt"/></svg></span><div><b data-i18n="tutUp">Pick an upgrade</b><small data-i18n="tutUpD">Every level up pauses the fight and offers three upgrades. Tap one.</small></div></div>
+        <div class="tut-step"><span class="badge b-green"><svg class="ico"><use href="#i-heart"/></svg></span><div><b data-i18n="tutTimer">Survive the timer</b><small data-i18n="tutTimerD">Last until the clock hits zero to clear the mission. Bosses show up later.</small></div></div>
       </div>
-      <button type="button" class="primary" id="btn-tut-ok">GOT IT</button>
+      <button type="button" class="primary" id="btn-tut-ok" data-i18n="gotIt">GOT IT</button>
     </div>
   </div>
 
   <div id="levelup" class="modal" hidden>
     <div class="panel">
-      <h2>LEVEL UP</h2>
-      <p class="eyebrow">Choose one upgrade</p>
+      <h2 data-i18n="levelUp">LEVEL UP</h2>
+      <p class="eyebrow" data-i18n="chooseUpgrade">Choose one upgrade</p>
       <div class="cards" id="levelup-cards"></div>
       <button type="button" class="ghost ad" id="btn-reroll"><svg class="ico"><use href="#i-play"/></svg>REROLL CHOICES</button>
     </div>
@@ -169,11 +204,11 @@
 
   <div id="pause" class="modal" hidden>
     <div class="panel">
-      <h2>PAUSED</h2>
+      <h2 data-i18n="paused">PAUSED</h2>
       <p class="eyebrow" id="pause-goal">Survive 3:00</p>
-      <button type="button" class="primary" id="btn-resume">RESUME</button>
-      <button type="button" class="ghost" id="btn-pause-settings">SETTINGS</button>
-      <button type="button" class="ghost" id="btn-quit">QUIT MISSION</button>
+      <button type="button" class="primary" id="btn-resume" data-i18n="resume">RESUME</button>
+      <button type="button" class="ghost" id="btn-pause-settings" data-i18n="settings">SETTINGS</button>
+      <button type="button" class="ghost" id="btn-quit" data-i18n="quit">QUIT MISSION</button>
     </div>
   </div>
 
@@ -185,14 +220,14 @@
       <div class="heroshot" id="over-hero"><img id="over-hero-img" alt=""><span class="heroshot-tag" id="over-hero-tag">ROGUE</span></div>
       <div class="starsrow" id="over-stars"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></div>
       <div class="stats">
-        <div><small>Time</small><b id="over-time">00:00</b></div>
-        <div><small>Kills</small><b id="over-kills">0</b></div>
-        <div><small>Coins</small><b id="over-coins">+0</b></div>
+        <div><small data-i18n="time">Time</small><b id="over-time">00:00</b></div>
+        <div><small data-i18n="kills">Kills</small><b id="over-kills">0</b></div>
+        <div><small data-i18n="coins">Coins</small><b id="over-coins">+0</b></div>
       </div>
       <button type="button" class="primary ad" id="btn-revive"><svg class="ico"><use href="#i-play"/></svg>REVIVE</button>
       <button type="button" class="ghost ad" id="btn-double"><svg class="ico"><use href="#i-play"/></svg>DOUBLE COINS</button>
-      <button type="button" class="primary" id="btn-continue">CONTINUE</button>
-      <button type="button" class="ghost" id="btn-retry">RETRY</button>
+      <button type="button" class="primary" id="btn-continue" data-i18n="continue">CONTINUE</button>
+      <button type="button" class="ghost" id="btn-retry" data-i18n="retry">RETRY</button>
     </div>
   </div>
 
