@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#0c0f12">
 <title>Zombie Survivor</title>
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <script type="module" crossorigin src="./assets/index-B6CQM2oT.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C1OVndWD.css">
+  <script type="module" crossorigin src="./assets/index-JWebJ283.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CytcZDMk.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -76,9 +76,15 @@
       <button type="button" class="icon-btn" id="btn-settings" aria-label="Settings"><svg class="ico"><use href="#i-gear"/></svg></button>
     </div>
     <div class="panel home">
-      <div class="logo">
-        <div class="logo-skull"><svg class="ico"><use href="#i-skull"/></svg></div>
-        <h1>ZOMBIE<br>SURVIVOR</h1>
+      <div class="logo"><h1>ZOMBIE<br>SURVIVOR</h1></div>
+      <div class="strip" id="strip">
+        <button type="button" class="sbtn" id="btn-daily"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><b data-i18n="dailyRewards">Daily</b><em class="dot" id="daily-dot"></em><small id="daily-sub" hidden></small></button>
+        <button type="button" class="sbtn ad" id="btn-chest"><span class="badge b-green"><svg class="ico"><use href="#i-chest"/></svg></span><b id="btn-chest-text" data-i18n="dailyChest">Chest</b></button>
+        <button type="button" class="sbtn ad" id="btn-boost"><span class="badge b-green"><svg class="ico"><use href="#i-bolt"/></svg></span><b id="btn-boost-text" data-i18n="boostRun">Boost</b></button>
+        <button type="button" class="sbtn ad" id="btn-x2"><span class="badge b-green"><svg class="ico"><use href="#i-coin"/></svg></span><b id="btn-x2-text">2x coins</b></button>
+        <button type="button" class="sbtn" id="btn-weekly"><span class="badge b-red"><svg class="ico"><use href="#i-boss"/></svg></span><b id="weekly-name" data-i18n="weekly">Weekly</b><small id="weekly-sub" hidden></small></button>
+        <button type="button" class="sbtn" id="btn-season"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span><b data-i18n="season">Season</b><small id="season-sub" hidden></small></button>
+        <button type="button" class="sbtn ad" id="btn-freecoins2"><span class="badge b-gold"><svg class="ico"><use href="#i-coin"/></svg></span><b>Free coins</b></button>
       </div>
       <div class="herocard" id="herocard">
         <img id="hc-img" class="hc-img" alt="">
@@ -97,16 +103,7 @@
         <button type="button" class="nav" id="btn-heroes"><span class="badge b-purple"><svg class="ico"><use href="#i-helmet"/></svg></span><span data-i18n="heroes">Heroes</span></button>
         <button type="button" class="nav" id="btn-awards"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span><span data-i18n="awards">Awards</span><em class="dot" id="awards-dot" hidden></em></button>
       </div>
-      <button type="button" class="dailybar" id="btn-daily"><span class="badge b-purple"><svg class="ico"><use href="#i-star"/></svg></span><span class="tx"><b data-i18n="dailyRewards">Daily rewards</b><small id="daily-sub">Claim today's login bonus</small></span><em class="dot" id="daily-dot"></em></button>
-      <div class="tiles">
-        <button type="button" class="tile" id="btn-weekly"><span class="badge b-red"><svg class="ico"><use href="#i-boss"/></svg></span><b id="weekly-name" data-i18n="weekly">Weekly</b><small id="weekly-sub">Shotgun Only · Village</small></button>
-        <button type="button" class="tile" id="btn-season"><span class="badge b-gold"><svg class="ico"><use href="#i-trophy"/></svg></span><b data-i18n="season">Season Pass</b><small id="season-sub">Tier 0/30</small></button>
-        <button type="button" class="tile ad" id="btn-chest"><span class="badge b-green"><svg class="ico"><use href="#i-chest"/></svg></span><b id="btn-chest-text" data-i18n="dailyChest">Daily chest</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
-        <button type="button" class="tile ad" id="btn-boost"><span class="badge b-green"><svg class="ico"><use href="#i-bolt"/></svg></span><b id="btn-boost-text" data-i18n="boostRun">Boost run</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
-        <button type="button" class="tile ad" id="btn-x2"><span class="badge b-green"><svg class="ico"><use href="#i-coin"/></svg></span><b id="btn-x2-text" data-i18n="x2">2x coins</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
-        <button type="button" class="tile" id="btn-freecoins2"><span class="badge b-gold"><svg class="ico"><use href="#i-coin"/></svg></span><b>Free coins</b><small><svg class="ico"><use href="#i-play"/></svg> AD</small></button>
-      </div>
-      <p class="hint" id="menu-hint">Move with the joystick. Your weapon fires on its own.</p>
+      <p class="hint" id="menu-hint" hidden></p>
     </div>
     <div id="ad-space"></div>
   </div>
